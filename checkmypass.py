@@ -12,6 +12,7 @@ def request_api_data(query_char):
 
 
 def get_password_leaks_count(hashes, hash_to_check):
+    print(hashes.text)
     hashes = (line.split(':') for line in hashes.text.splitlines())
     for h, count in hashes:
         if h == hash_to_check:
@@ -37,4 +38,6 @@ def main(args):
     return 'done'
 
 
-main(sys.argv[1:])
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))
+
